@@ -8,7 +8,7 @@ public class CartItem: BaseEntity
     public Cart? Cart { get; set; }
 
     public Guid ProductId { get; set; }
-    public Product? Product { get; set; }
+    public Product Product { get; set; } = null!;
 
     public int Quantity { get; set; }
 }

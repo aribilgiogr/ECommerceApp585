@@ -11,5 +11,5 @@ public record OrderResponseDto(
     OrderStatus Status,
     string ShippingAddress,
     DateTime CreatedAt,
-    IEnumerable<OrderCreateDto> Items
+    IEnumerable<OrderItemResponseDto> Items
 );
