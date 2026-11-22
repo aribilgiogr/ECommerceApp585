@@ -5,7 +5,7 @@ namespace Core.Concretes.DTOs.Order;
 public record OrderResponseDto(
     Guid Id,
     string OrderNumber,
-    decimal Subtotal,
+    decimal SubTotal,
     decimal TotalTax,
     decimal TotalAmount,
     OrderStatus Status,

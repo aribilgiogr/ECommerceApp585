@@ -16,5 +16,20 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<CartItem> CartItems => Set<CartItem>();
     public DbSet<Order> Orders => Set<Order>();
     public DbSet<OrderItem> OrderItems => Set<OrderItem>();
-}
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<User>().HasQueryFilter(e => !e.Deleted);
+        modelBuilder.Entity<Category>().HasQueryFilter(e => !e.Deleted);
+        modelBuilder.Entity<Brand>().HasQueryFilter(e => !e.Deleted);
+        modelBuilder.Entity<Product>().HasQueryFilter(e => !e.Deleted);
+        modelBuilder.Entity<ProductAttribute>().HasQueryFilter(e => !e.Deleted);
+        modelBuilder.Entity<ProductImage>().HasQueryFilter(e => !e.Deleted);
+        modelBuilder.Entity<ProductReview>().HasQueryFilter(e => !e.Deleted);
+        modelBuilder.Entity<Cart>().HasQueryFilter(e => !e.Deleted);
+        modelBuilder.Entity<CartItem>().HasQueryFilter(e => !e.Deleted);
+        modelBuilder.Entity<Order>().HasQueryFilter(e => !e.Deleted);
+        modelBuilder.Entity<OrderItem>().HasQueryFilter(e => !e.Deleted);
+    }
+}

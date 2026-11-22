@@ -9,9 +9,9 @@ using Core.Concretes.Entities;
 
 namespace Business.Maps;
 
-public class MappingProfiles : Profile
+public class MappingProfile : Profile
 {
-    public MappingProfiles()
+    public MappingProfile()
     {
         // User & Auth
         CreateMap<RegisterDto, User>();
@@ -31,7 +31,9 @@ public class MappingProfiles : Profile
         CreateMap<ProductAttributeDto, ProductAttribute>().ReverseMap();
         CreateMap<ProductImageDto, ProductImage>().ReverseMap();
         CreateMap<ProductCreateDto, Product>();
-        CreateMap<ProductUpdateDto, Product>();
+        CreateMap<ProductUpdateDto, Product>()
+            .ForMember(dest => dest.Attributes, opt => opt.Ignore())
+            .ForMember(dest => dest.Images, opt => opt.Ignore());
 
         CreateMap<Product, ProductResponseDto>()
             .ForCtorParam("CategoryName", opt =>
