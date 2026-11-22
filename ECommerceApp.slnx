@@ -2,4 +2,5 @@
   <Project Path="Business/Business.csproj" />
   <Project Path="Core/Core.csproj" />
   <Project Path="Data/Data.csproj" />
+  <Project Path="WebAPI/WebAPI.csproj" />
 </Solution>
